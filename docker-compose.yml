@@ -55,6 +55,17 @@ services:
     depends_on:
       - elasticsearch
 
+  4ceeduploader:
+    image: t2c2/4ceeduploader:16.10.2
+    ports:
+      - "8888:8000"
+    environment:
+      CURATOR_HOME: "http://192.17.237.43:32500"
+      CURATOR_API_URL: "http://192.17.237.43:32500/api/"
+      UPLOADER_HOME: "http://bracelet-test-1.cs.illinois.edu:8888/4ceeduploader/"
+    networks:
+      - elk
+
 networks:
 
   elk:
