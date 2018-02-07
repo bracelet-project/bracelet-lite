@@ -3,17 +3,19 @@ BRACELET-Lite
 
 Lite version of BRACELET, connecting scientific instruments running on old operating systems to [4CeeD](https://github.com/4ceed/4ceedframework/) cloud.
 
-Based on the following Docker images:
+Based on the following open-source projects:
 
 * [docker-elk](https://github.com/deviantony/docker-elk)
 * [docker-bro](https://github.com/blacktop/docker-bro)
 * [4ceeduploader](https://github.com/bracelet-project/4ceeduploader)
 
 ### Configuration 
-Configure the `4ceeduploader` service in `docker-compose.yml` file with information of 4CeeD instance:
+Configure `4ceeduploader` service in `docker-compose.yml` file with information of 4CeeD instance:
 - `CURATOR_HOME`: Home address of 4CeeD curator instance
 - `CURATOR_API_URL`: Address of 4CeeD curator APIs
 - `UPLOADER_HOME`: Home address of this uploader
+
+Configure `bro` service in `docker-compose.yml` to listen to different network interface (default is `eth0`).
 
 ### Usage 
 
@@ -23,3 +25,14 @@ To run BRACELET-Lite:
 ./docker-compose up
 ```
 
+To run BRACELET-Lite in detached mode:
+
+```bash
+./docker-compose up -d
+```
+
+To stop BRACELET-Lite, simply press `Ctrl+C` if running in foreground mode, or run the following command if running in detached mode:
+
+```bash
+./docker-compose down
+```
