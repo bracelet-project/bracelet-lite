@@ -2,6 +2,16 @@ version: '2'
 
 services:
 
+  bro:
+    image: blacktop/bro
+    command: -i eth0
+    volumes:
+      - ./bro:/pcap:rw
+    cap_add:
+      - NET_RAW
+    networks:
+      - elk
+
   elasticsearch:
     build: 
       context: elasticsearch/
@@ -14,6 +24,8 @@ services:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
     networks:
       - elk
+    depends_on:
+      - bro 
 
   logstash:
     build:
