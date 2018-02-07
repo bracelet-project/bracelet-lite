@@ -9,6 +9,10 @@ Based on the following open-source projects:
 * [docker-bro](https://github.com/blacktop/docker-bro)
 * [4ceeduploader](https://github.com/bracelet-project/4ceeduploader)
 
+### Prerequisites
+- [Docker](https://www.docker.com/community-edition#/download) version **1.10.0+**
+- [Docker Compose](https://docs.docker.com/compose/install/) version **1.6.0+**
+
 ### Configuration 
 Configure `4ceeduploader` service in `docker-compose.yml` file with information of 4CeeD instance:
 - `CURATOR_HOME`: Home address of 4CeeD curator instance
