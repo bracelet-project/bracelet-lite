@@ -12,31 +12,38 @@ Based on the following open-source projects:
 ### Prerequisites
 - [Docker](https://www.docker.com/community-edition#/download) version **1.10.0+**
 - [Docker Compose](https://docs.docker.com/compose/install/) version **1.6.0+**
+- A running instance of [4CeeD](https://github.com/4ceed/4ceedframework/)
 
 ### Configuration 
 Configure `4ceeduploader` service in `docker-compose.yml` file with information of 4CeeD instance:
-- `CURATOR_HOME`: Home address of 4CeeD curator instance
-- `CURATOR_API_URL`: Address of 4CeeD curator APIs
+- `CURATOR_HOME`: Home address of the running 4CeeD instance
+- `CURATOR_API_URL`: Address of the running 4CeeD APIs' base URL
 - `UPLOADER_HOME`: Home address of this uploader
 
 Configure `bro` service in `docker-compose.yml` to listen to different network interface (default is `eth0`).
 
-### Usage 
+### Deploy
 
 To run BRACELET-Lite:
 
 ```bash
-./docker-compose up
+docker-compose up
 ```
 
-To run BRACELET-Lite in detached mode:
+Or, to run BRACELET-Lite in detached mode:
 
 ```bash
-./docker-compose up -d
+docker-compose up -d
 ```
 
 To stop BRACELET-Lite, simply press `Ctrl+C` if running in foreground mode, or run the following command if running in detached mode:
 
 ```bash
-./docker-compose down
+docker-compose down
 ```
+
+After deploying BRACELET-Lite, 4CeeD uploader can be accessed at the address specify in `UPLOADER_HOME`.
+
+### Next Steps
+
+- [Setup Kibana](docs/setup_kibana.md) 
