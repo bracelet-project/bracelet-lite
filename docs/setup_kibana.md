@@ -5,7 +5,7 @@ Setup Kibana
 
 Since Kibana is setup to expose to only localhost interface (as Kibana itself does not provide any authentication by default), to access Kibana, we first need to setup a reverse proxy on BRACELET-Lite server to bridge the access to Kibana.
 
-We recommend to use (NGINX)[https://www.nginx.com/] as the reverse proxy for BRACELET-Lite. Please follow installation instructions on NGINX website.
+We recommend to use [NGINX](https://www.nginx.com/) as the reverse proxy for BRACELET-Lite. Please follow installation instructions on NGINX website.
 
 ## Setup basic authentication and access to Kibana
 
@@ -52,3 +52,13 @@ server {
 ```
 
 Now, Kibana can be accessed via `[BRACELET_SERVER_ADDRESS]:5601` using username and password setup above.
+
+## Configure Kibana on the first access
+
+After having access to Kibana, we need to configure Kibana to access Logstash data that has been indexed into Elasticsearch.
+
+On Kibana's interface, click the *Management* tab, then the *Index Patterns* tab. Click *Add New* to define a new index pattern. Specify `logstash-*` as the index pattern for the Logstash data and click *Create* to define the index pattern.
+
+The Logstash data set does contain time-series data, so after clicking *Add New* to define the index for this data, make sure the Index contains time-based events box is checked and select the @timestamp field from the Time-field name drop-down.
+
+After configuring Kibana's index pattern for Logstash data, navigate to *Discover* tab to see visualization of real-time network traffic.
