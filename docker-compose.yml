@@ -56,13 +56,13 @@ services:
       - elasticsearch
 
   4ceeduploader:
-    image: t2c2/4ceeduploader:16.10.2
+    image: t2c2/4ceeduploader:18.05.09
     ports:
       - "8888:8000"
     environment:
       CURATOR_HOME: "http://4ceed.illinois.edu"
       CURATOR_API_URL: "http://4ceed.illinois.edu/api/"
-      UPLOADER_HOME: "http://bracelet-test-1.cs.illinois.edu:8888/4ceeduploader/"
+      UPLOADER_HOME: "http://bracelet-test-1.cs.illinois.edu:8888"
     networks:
       - elk
 
