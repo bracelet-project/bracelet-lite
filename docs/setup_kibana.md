@@ -7,8 +7,14 @@ Since Kibana is setup to expose to only localhost interface (as Kibana itself do
 
 We recommend to use [NGINX](https://www.nginx.com/) as the reverse proxy for BRACELET-Lite. Only Ubuntu, you can install NGINX by issuing the following command:
 
+On Ubuntu:
 ```
 sudo apt-get install nginx 
+```
+
+or on CentOS:
+```
+sudo yum install nginx 
 ```
 
 Please follow installation instructions on NGINX website.
@@ -19,8 +25,13 @@ Please follow installation instructions on NGINX website.
 
 First, verify that apache2-utils is installed, or issuing the following command to install it:
 
+On Ubuntu:
 ```
 sudo apt-get install apache2-utils 
+```
+or on CentOS:
+```
+sudo yum install httpd-tools
 ```
 
 To create a password file and a first user, run the `htpasswd` utility with the `-c` flag (to create a new file), the file pathname as the first argument, and the username as the second argument:
@@ -35,8 +46,14 @@ Press Enter and type the password for `kibanaadmin` at the prompts.
 
 Next, open NGINX's configuration file:
 
+On Ubuntu:
 ```
 sudo vi /etc/nginx/sites-available/default
+```
+
+or on CentOS:
+```
+sudo vi /etc/nginx/nginx.conf
 ```
 
 Add the following `server` block to NGINX's configuration file to allow access to Kibana that requires basic user/password authentication setup above:
