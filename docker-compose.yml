@@ -9,8 +9,7 @@ services:
       - ./bro:/pcap:rw
     cap_add:
       - NET_RAW
-    networks:
-      - elk
+    network_mode: "host"
 
   elasticsearch:
     build: 
