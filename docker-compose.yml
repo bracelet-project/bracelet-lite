@@ -57,11 +57,11 @@ services:
   4ceeduploader:
     image: t2c2/4ceeduploader:18.06.09
     ports:
-      - "8888:8000"
+      - "8000:8000"
     environment:
+      UPLOADER_HOME: "http://bracelet-srv-test.engr.illinois.edu"
       CURATOR_HOME: "http://bracelet-srv-test.engr.illinois.edu/curatorhome/"
       CURATOR_API_URL: "http://bracelet-srv-test.engr.illinois.edu/curatorapi/"
-      UPLOADER_HOME: "http://bracelet-srv-test.engr.illinois.edu:8888"
     networks:
       - elk
 
